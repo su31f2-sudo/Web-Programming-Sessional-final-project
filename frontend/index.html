@@ -38,10 +38,8 @@
                 </button>
             </div>
 
-            <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.2);">
-                <div style="font-size: 14px; opacity: 0.8;">
-                    <p>AI Notes turns your regular notes into intelligent study tools with the power of AI.</p>
-                </div>
+            <div class="sidebar-footer">
+                <p>AI Notes turns your regular notes into intelligent study tools with the power of AI.</p>
             </div>
         </div>
 
@@ -49,7 +47,7 @@
         <div class="main-content">
             <div class="header">
                 <div class="search-bar">
-                    <input type="text" placeholder="Search your notes...">
+                    <input type="text" id="search-input" placeholder="Search your notes...">
                     <button><i class="fas fa-search"></i></button>
                 </div>
                 <button class="add-note-btn" id="add-note-btn">
@@ -61,15 +59,27 @@
             <!-- Notes Grid -->
             <div class="notes-grid" id="notes-grid">
                 <!-- Notes dynamically loaded -->
+                <div class="empty-state" id="empty-state" style="display: none;">
+                    <i class="fas fa-sticky-note"></i>
+                    <h3>No Notes Yet</h3>
+                    <p>Create your first note to get started with AI-powered note taking.</p>
+                    <button class="add-note-btn" id="empty-add-btn">
+                        <i class="fas fa-plus"></i>
+                        <span>Create Your First Note</span>
+                    </button>
+                </div>
             </div>
 
             <!-- Note Editor -->
-            <div class="note-editor" id="note-editor" style="display: none;">
+            <div class="note-editor" id="note-editor">
                 <div class="editor-header">
                     <div class="editor-title" id="editor-title">New Note</div>
                     <div class="editor-actions">
                         <button class="editor-btn cancel-btn" id="cancel-btn">Cancel</button>
-                        <button class="editor-btn save-btn" id="save-btn">Save Note</button>
+                        <button class="editor-btn save-btn" id="save-btn">
+                            <span id="save-btn-text">Save Note</span>
+                            <span id="save-btn-loading" style="display: none;" class="loading"></span>
+                        </button>
                     </div>
                 </div>
 
@@ -87,10 +97,18 @@
             </div>
 
             <!-- AI Output -->
-            <div class="ai-output" id="ai-output" style="display: none;">
+            <div class="ai-output" id="ai-output">
                 <div class="ai-output-header">
-                    <div class="ai-output-title" id="ai-output-title">AI Output</div>
-                    <button class="editor-btn" id="copy-ai-output" style="background: #4cc9f0; color: white;">Copy</button>
+                    <div class="ai-output-title" id="ai-output-title">
+                        <i class="fas fa-robot"></i>
+                        <span>AI Output</span>
+                    </div>
+                    <div class="ai-output-actions">
+                        <button class="editor-btn" id="copy-ai-output" style="background: #06b6d4; color: white;">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                        <button class="editor-btn cancel-btn" id="close-ai-output">Close</button>
+                    </div>
                 </div>
                 <div class="ai-output-content" id="ai-output-content"></div>
             </div>
@@ -99,7 +117,6 @@
 
     <!-- External JS -->
     <script src="app.js"></script>
-
 </body>
 
 </html>
