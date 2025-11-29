@@ -37,7 +37,7 @@ CREATE TABLE ai_processing (
 
 -- Insert sample user (THIS IS CRITICAL - userId will be 1)
 INSERT INTO users (userName, userEmail, userPassword) VALUES 
-('John Doe', 'john@example.com', 'password123');
+('S M AL RABBI', 'smalrabbi@gmail.com', 'password123');
 
 -- Insert sample notes for user 1
 INSERT INTO notes (userId, title, content) VALUES 
