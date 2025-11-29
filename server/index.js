@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
@@ -11,7 +12,7 @@ app.use(express.json());
 
 // ==================== GOOGLE GEMINI AI CLIENT ====================
 const ai = new GoogleGenAI({
-  apiKey: "AIzaSyAic36onhgP8ufKDFrAiERCmb0dNBQtY3Q", // store key in .env
+  apiKey: process.env.GOOGLE_GENAI_API_KEY, // store key in .env
 });
 
 // ==================== MYSQL CONNECTION ====================
